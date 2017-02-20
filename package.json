@@ -1,0 +1,27 @@
+{
+  "name": "project-lvl1-s69",
+  "version": "0.1.0",
+  "description": "the project for the first level",
+  "main": "src/bin/brain-games.js",
+  "bin": "src/bin/brain-games.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-node": "babel-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexeyShobanov/project-lvl1-s69.git"
+  },
+  "author": "Alexey Shobanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexeyShobanov/project-lvl1-s69/issues"
+  },
+  "homepage": "https://github.com/AlexeyShobanov/project-lvl1-s69#readme",
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-core": "*",
+    "babel-preset-env": "*",
+    "babel-preset-stage-0": "*"
+  }
+}
