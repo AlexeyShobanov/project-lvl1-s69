@@ -1,10 +1,10 @@
 {
   "name": "project-lvl1-s69-from-alexey",
-  "version": "0.2.2",
+  "version": "0.4.1",
   "description": "the project for the first level",
   "main": "dist/index.js",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-event": "dist/bin/brain-event.js"
   },
   "scripts": {
     "test": "make lint",

@@ -1,11 +1,11 @@
-import readlineSync from 'readline-sync';
+import printGreeting from './printGreeting';
+import getName from './getName';
+import checkIntegrity from './checkIntegrity';
 
-
-const printGreeting = () => {
-  const gamerName = readlineSync.question('What is your name? ');
-  const greetingLine = `Welcome to the Brain Games!\n\nMay I have your name? ${gamerName}\nHello, ${gamerName}!`;
-
-  return console.log(greetingLine);
+const checkIntegrityInGreeting = () => {
+  const name = getName();
+  printGreeting(name);
+  checkIntegrity(name);
 };
 
-export default printGreeting;
+export default checkIntegrityInGreeting;
