@@ -6,6 +6,6 @@ const printGreeting = () => {
   const greetingLine = `Welcome to the Brain Games!\n\nMay I have your name? ${gamerName}\nHello, ${gamerName}!`;
 
   return console.log(greetingLine);
-}
+};
 
 export default printGreeting;
