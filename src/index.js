@@ -1,9 +1,9 @@
 import printGreeting from './printGreeting';
-import getName from './getName';
+import getAnswer from './getAnswer';
 import checkIntegrity from './checkIntegrity';
 
 const checkIntegrityInGreeting = () => {
-  const name = getName();
+  const name = getAnswer('What is your name? ');
   printGreeting(name);
   checkIntegrity(name);
 };
