@@ -1,4 +1,9 @@
-import getAnswer from './getAnswer';
+import readlineSync from 'readline-sync';
+
+const getAnswer = (question) => {
+  const gamerAnswer = readlineSync.question(question);
+  return gamerAnswer;
+};
 
 const computeRandomInteger = () => {
   const number = Math.floor(Math.random() * 99) + 1;
@@ -20,4 +25,16 @@ const checkIntegrity = (name) => {
   return console.log(`Correct!\nCongratulations, ${name}!`);
 };
 
-export default checkIntegrity;
+const printGreeting = (name) => {
+  const greetingLine = `\nWelcome to the Brain Games!\nAnswer "yes" if number odd otherwise answer "no".\n\nMay I have your name? ${name}\nHello, ${name}!\n`;
+
+  return console.log(greetingLine);
+};
+
+const checkIntegrityInGreeting = () => {
+  const name = getAnswer('What is your name? ');
+  printGreeting(name);
+  checkIntegrity(name);
+};
+
+export default checkIntegrityInGreeting;
