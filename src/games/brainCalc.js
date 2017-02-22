@@ -1,5 +1,5 @@
 import { cons, car, cdr } from 'hexlet-pairs';
-import { computeRandomInteger, getAnswer } from './brainEvent';
+import { computeRandomInteger, getAnswer, printGreeting } from './brainEvent';
 
 
 const createRandomPair = () => {
@@ -22,6 +22,11 @@ const mulPair = (pair) => {
   return mul;
 };
 
+const divRemPair = (pair) => {
+  const divRem = car(pair) % cdr(pair);
+  return divRem;
+};
+
 const calcExpression = (operator, pair) => {
   switch (operator) {
     case '-':
@@ -33,14 +38,10 @@ const calcExpression = (operator, pair) => {
   }
 };
 
-const printGreeting = (name) => {
-  const greetingLine = `\nWelcome to the Brain Games!\nWhat is the result of the expression?\n\nMay I have your name? ${name}\nHello, ${name}!\n`;
-  return console.log(greetingLine);
-};
-
 const calcExpressionWithGreeting = () => {
   const name = getAnswer('What is your name? ');
-  printGreeting(name);
+  const specialString = 'What is the result of the expression?';
+  printGreeting(name, specialString);
   const operators = ['+', '-', '*'];
   let i = 0;
   while (i < operators.length) {
@@ -59,3 +60,4 @@ const calcExpressionWithGreeting = () => {
 };
 
 export default calcExpressionWithGreeting;
+export { divRemPair, createRandomPair };

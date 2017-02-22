@@ -10,6 +10,12 @@ const computeRandomInteger = () => {
   return number;
 };
 
+const printGreeting = (name, specialString) => {
+  const greetingLine = `\nWelcome to the Brain Games!\n${specialString}\n\nMay I have your name? ${name}\nHello, ${name}!\n`;
+
+  return console.log(greetingLine);
+};
+
 const checkIntegrity = (name) => {
   let iter = 0;
   while (iter < 3) {
@@ -26,17 +32,12 @@ const checkIntegrity = (name) => {
   return console.log(`Correct!\nCongratulations, ${name}!`);
 };
 
-const printGreeting = (name) => {
-  const greetingLine = `\nWelcome to the Brain Games!\nAnswer "yes" if number odd otherwise answer "no".\n\nMay I have your name? ${name}\nHello, ${name}!\n`;
-
-  return console.log(greetingLine);
-};
-
 const checkIntegrityInGreeting = () => {
   const name = getAnswer('What is your name? ');
-  printGreeting(name);
+  const specialString = 'Answer "yes" if number odd otherwise answer "no".';
+  printGreeting(name, specialString);
   checkIntegrity(name);
 };
 
 export default checkIntegrityInGreeting;
-export { computeRandomInteger, getAnswer };
+export { computeRandomInteger, getAnswer, printGreeting };
