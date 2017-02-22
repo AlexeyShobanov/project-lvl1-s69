@@ -1,3 +1,4 @@
-import checkIntegrityInGreeting from './firstGame';
+import checkIntegrityInGreeting from './games/brainEvent';
+import calcExpressionWithGreeting from './games/brainCalc';
 
-export default checkIntegrityInGreeting;
+export { checkIntegrityInGreeting, calcExpressionWithGreeting };

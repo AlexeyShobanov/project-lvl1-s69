@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import checkIntegrityInGreeting from '..';
+import { checkIntegrityInGreeting } from '..';
 
 checkIntegrityInGreeting();

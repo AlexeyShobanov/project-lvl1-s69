@@ -16,8 +16,9 @@ const checkIntegrity = (name) => {
     const randomNumber = computeRandomInteger();
     console.log(`Question: ${randomNumber}`);
     const answer = randomNumber % 2 === 0 ? 'yes' : 'no';
-    if (getAnswer('Your answer: ') !== answer) {
-      const incorrectAnswer = `'${answer}' is wrong answer ;(. Correct answer was '${answer === 'no' ? 'yes' : 'no'}'.\nLet's try again, ${name}!`;
+    const yourAnswer = getAnswer('Your answer: ');
+    if (yourAnswer !== answer) {
+      const incorrectAnswer = `'${yourAnswer}' is wrong answer ;(. Correct answer was '${answer}'.\nLet's try again, ${name}!`;
       return console.log(incorrectAnswer);
     }
     iter += 1;
@@ -38,3 +39,4 @@ const checkIntegrityInGreeting = () => {
 };
 
 export default checkIntegrityInGreeting;
+export { computeRandomInteger, getAnswer };
