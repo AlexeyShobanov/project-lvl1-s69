@@ -6,8 +6,8 @@ export const getAnswer = (question) => {
   return gamerAnswer;
 };
 
-export const printGreeting = (name, specialString) => {
-  const greetingLine = `\nWelcome to the Brain Games!\n${specialString}\n\nMay I have your name? ${name}\nHello, ${name}!\n`;
+export const printGreeting = (name, task) => {
+  const greetingLine = `\nWelcome to the Brain Games!\n${task}\n\nMay I have your name? ${name}\nHello, ${name}!\n`;
   return console.log(greetingLine);
 };
 
@@ -23,8 +23,8 @@ export const createRandomPair = () => {
   return randomPair;
 };
 
-export const runSelectedGame = (name, taskString, getData, question, getResult) => {
-  printGreeting(name, taskString);
+export const runSelectedGame = (name, task, getData, question, getResult) => {
+  printGreeting(name, task);
   let iter = 0;
   while (iter < 3) {
     const randomData = getData(iter);

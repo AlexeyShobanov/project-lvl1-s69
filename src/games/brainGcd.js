@@ -14,11 +14,11 @@ const findNod = (pair) => {
 };
 
 const runBrainGcd = () => (name) => {
-  const taskString = 'Find the greatest common divisor of given numbers.';
+  const task = 'Find the greatest common divisor of given numbers.';
   const question = randomData => `${car(randomData)} ${cdr(randomData)}`;
   const getResult = randomData => findNod(randomData);
   const randomData = () => createRandomPair();
-  runSelectedGame(name, taskString, randomData, question, getResult);
+  runSelectedGame(name, task, randomData, question, getResult);
 };
 
 export default runBrainGcd;

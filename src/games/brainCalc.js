@@ -44,11 +44,11 @@ const nextOperator = (iter) => {
 };
 
 const runBrainCalc = () => (name) => {
-  const taskString = 'What is the result of the expression?';
+  const task = 'What is the result of the expression?';
   const question = randomData => `${car(car(randomData))} ${cdr(randomData)} ${cdr(car(randomData))}`;
   const getResult = randomData => calcExpression(cdr(randomData), car(randomData));
   const randomData = iter => cons(createRandomPair(), nextOperator(iter));
-  runSelectedGame(name, taskString, randomData, question, getResult);
+  runSelectedGame(name, task, randomData, question, getResult);
 };
 
 export default runBrainCalc;
