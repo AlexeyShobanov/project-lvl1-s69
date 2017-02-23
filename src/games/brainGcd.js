@@ -1,5 +1,6 @@
 import { cons, car, cdr } from 'hexlet-pairs';
-import { divRemPair, createRandomPair, checkAnswer } from './commonFunction';
+import { createRandomPair, runSelectedGame } from './commonFunction';
+import { divRemPair } from './brainCalc';
 
 const findNod = (pair) => {
   const iter = (numbs, acc) => {
@@ -12,12 +13,12 @@ const findNod = (pair) => {
   return iter(pair, 1);
 };
 
-const findNodWithGreeting = () => (name) => {
+const runBrainGcd = () => (name) => {
   const taskString = 'Find the greatest common divisor of given numbers.';
-  const questionString = randomData => `${car(randomData)} ${cdr(randomData)}`;
+  const question = randomData => `${car(randomData)} ${cdr(randomData)}`;
   const getResult = randomData => findNod(randomData);
   const randomData = () => createRandomPair();
-  checkAnswer(name, taskString, randomData, questionString, getResult);
+  runSelectedGame(name, taskString, randomData, question, getResult);
 };
 
-export default findNodWithGreeting;
+export default runBrainGcd;

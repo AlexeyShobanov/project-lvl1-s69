@@ -1,4 +1,4 @@
-import { cons, car, cdr } from 'hexlet-pairs';
+import { cons } from 'hexlet-pairs';
 import readlineSync from 'readline-sync';
 
 export const getAnswer = (question) => {
@@ -23,43 +23,12 @@ export const createRandomPair = () => {
   return randomPair;
 };
 
-export const sumPair = (pair) => {
-  const sum = car(pair) + cdr(pair);
-  return sum;
-};
-
-export const subPair = (pair) => {
-  const sub = car(pair) - cdr(pair);
-  return sub;
-};
-
-export const mulPair = (pair) => {
-  const mul = car(pair) * cdr(pair);
-  return mul;
-};
-
-export const divRemPair = (pair) => {
-  const divRem = car(pair) % cdr(pair);
-  return divRem;
-};
-
-export const calcExpression = (operator, pair) => {
-  switch (operator) {
-    case '-':
-      return subPair(pair);
-    case '*':
-      return mulPair(pair);
-    default:
-      return sumPair(pair);
-  }
-};
-
-export const checkAnswer = (name, taskString, getData, questionString, getResult) => {
+export const runSelectedGame = (name, taskString, getData, question, getResult) => {
   printGreeting(name, taskString);
   let iter = 0;
   while (iter < 3) {
     const randomData = getData(iter);
-    console.log(`Question: ${questionString(randomData)}`);
+    console.log(`Question: ${question(randomData)}`);
     const result = getResult(randomData);
     const yourAnswer = getAnswer('Your answer: ');
     if (yourAnswer !== String(result)) {

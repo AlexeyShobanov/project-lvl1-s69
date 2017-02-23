@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { getAnswer } from '../games/commonFunction';
-import { brainEvent } from '..';
+import { runBrainEven } from '..';
 
 const name = getAnswer('What is your name? ');
-brainEvent(name);
+runBrainEven()(name);

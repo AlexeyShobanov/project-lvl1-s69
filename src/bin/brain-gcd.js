@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { getAnswer } from '../games/commonFunction';
-import { brainGsd } from '..';
+import { runBrainGcd } from '..';
 
 const name = getAnswer('What is your name? ');
-brainGsd(name);
+runBrainGcd()(name);

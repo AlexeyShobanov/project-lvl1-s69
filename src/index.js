@@ -1,9 +1,5 @@
-import checkIntegrityInGreeting from './games/brainEvent';
-import calcExpressionWithGreeting from './games/brainCalc';
-import findNodWithGreeting from './games/brainGcd';
+import runBrainEven from './games/brainEven';
+import runBrainCalc from './games/brainCalc';
+import runBrainGcd from './games/brainGcd';
 
-const brainEvent = checkIntegrityInGreeting();
-const brainCalc = calcExpressionWithGreeting();
-const brainGsd = findNodWithGreeting();
-
-export { brainEvent, brainCalc, brainGsd };
+export { runBrainEven, runBrainCalc, runBrainGcd };
