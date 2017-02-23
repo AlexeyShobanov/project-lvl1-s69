@@ -54,7 +54,8 @@ export const calcExpression = (operator, pair) => {
   }
 };
 
-export const checkAnswer = (name, getData, questionString, getResult) => {
+export const checkAnswer = (name, taskString, getData, questionString, getResult) => {
+  printGreeting(name, taskString);
   let iter = 0;
   while (iter < 3) {
     const randomData = getData(iter);
