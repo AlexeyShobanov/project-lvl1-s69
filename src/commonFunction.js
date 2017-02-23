@@ -1,4 +1,4 @@
-import { cons } from 'hexlet-pairs';
+import { cons, car, cdr } from 'hexlet-pairs';
 import readlineSync from 'readline-sync';
 
 export const getAnswer = (question) => {
@@ -23,8 +23,32 @@ export const createRandomPair = (min, max) => {
   return randomPair;
 };
 
-export const runSelectedGame = (task, getData, question, getResult) => {
+export const sumPair = (pair) => {
+  const sum = car(pair) + cdr(pair);
+  return sum;
+};
+
+export const subPair = (pair) => {
+  const sub = car(pair) - cdr(pair);
+  return sub;
+};
+
+export const mulPair = (pair) => {
+  const mul = car(pair) * cdr(pair);
+  return mul;
+};
+
+export const divRemPair = (pair) => {
+  const divRem = car(pair) % cdr(pair);
+  return divRem;
+};
+
+/* export const getName = () => {
   const name = getAnswer('What is your name? ');
+  return name;
+}; */
+
+export const runSelectedGame = (name, task, getData, question, getResult) => {
   printGreeting(name, task);
   let iter = 0;
   while (iter < 3) {
