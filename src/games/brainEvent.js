@@ -1,7 +1,7 @@
-import { computeRandomInteger, getAnswer, checkAnswer } from './commonFunction';
+import { computeRandomInteger, checkAnswer } from './commonFunction';
 
-const checkIntegrityInGreeting = () => {
-  const name = getAnswer('What is your name? ');
+const checkIntegrityInGreeting = () => (name) => {
+  // const name = getAnswer('What is your name? ');
   const taskString = 'Answer "yes" if number odd otherwise answer "no".';
   const questionString = randomData => `${randomData}`;
   const getResult = (randomData) => {

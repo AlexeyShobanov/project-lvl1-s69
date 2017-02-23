@@ -1,5 +1,5 @@
 import { car, cdr, cons } from 'hexlet-pairs';
-import { calcExpression, getAnswer, checkAnswer, createRandomPair } from './commonFunction';
+import { calcExpression, checkAnswer, createRandomPair } from './commonFunction';
 
 const nextOperator = (iter) => {
   switch (String(iter)) {
@@ -12,8 +12,7 @@ const nextOperator = (iter) => {
   }
 };
 
-const calcExpressionWithGreeting = () => {
-  const name = getAnswer('What is your name? ');
+const calcExpressionWithGreeting = () => (name) => {
   const taskString = 'What is the result of the expression?';
   const questionString = randomData => `${car(car(randomData))} ${cdr(randomData)} ${cdr(car(randomData))}`;
   const getResult = randomData => calcExpression(cdr(randomData), car(randomData));

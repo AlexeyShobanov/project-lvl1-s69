@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import { checkIntegrityInGreeting } from '..';
+import { getAnswer } from '../games/commonFunction';
+import { brainEvent } from '..';
 
-checkIntegrityInGreeting();
+const name = getAnswer('What is your name? ');
+brainEvent(name);

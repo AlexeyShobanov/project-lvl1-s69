@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import { findNodWithGreeting } from '..';
+import { getAnswer } from '../games/commonFunction';
+import { brainGsd } from '..';
 
-findNodWithGreeting();
+const name = getAnswer('What is your name? ');
+brainGsd(name);

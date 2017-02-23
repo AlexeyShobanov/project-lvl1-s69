@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import { calcExpressionWithGreeting } from '..';
+import { getAnswer } from '../games/commonFunction';
+import { brainCalc } from '..';
 
-calcExpressionWithGreeting();
+const name = getAnswer('What is your name? ');
+brainCalc(name);
