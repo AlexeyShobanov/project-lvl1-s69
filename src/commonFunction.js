@@ -43,12 +43,8 @@ export const divRemPair = (pair) => {
   return divRem;
 };
 
-/* export const getName = () => {
+export const runSelectedGame = (task, getData, question, getResult) => {
   const name = getAnswer('What is your name? ');
-  return name;
-}; */
-
-export const runSelectedGame = (name, task, getData, question, getResult) => {
   printGreeting(name, task);
   let iter = 0;
   while (iter < 3) {
