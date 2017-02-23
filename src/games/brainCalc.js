@@ -1,5 +1,5 @@
 import { car, cdr, cons } from 'hexlet-pairs';
-import { runSelectedGame, createRandomPair } from './commonFunction';
+import { runSelectedGame, createRandomPair } from '../commonFunction';
 
 const sumPair = (pair) => {
   const sum = car(pair) + cdr(pair);
@@ -43,12 +43,12 @@ const nextOperator = (iter) => {
   }
 };
 
-const runBrainCalc = () => (name) => {
+const runBrainCalc = () => {
   const task = 'What is the result of the expression?';
   const question = randomData => `${car(car(randomData))} ${cdr(randomData)} ${cdr(car(randomData))}`;
   const getResult = randomData => calcExpression(cdr(randomData), car(randomData));
-  const randomData = iter => cons(createRandomPair(), nextOperator(iter));
-  runSelectedGame(name, task, randomData, question, getResult);
+  const randomData = iter => cons(createRandomPair(1, 100), nextOperator(iter));
+  runSelectedGame(task, randomData, question, getResult);
 };
 
 export default runBrainCalc;
