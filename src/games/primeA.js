@@ -6,11 +6,13 @@ const checkPrime = (num) => {
   while (baseVerification * 2 < num) {
     let stepVerification = 2;
     while (stepVerification * baseVerification <= num) {
-      const x = baseVerification * stepVerification;
-      if (num === x) {
+      const compositeNum = baseVerification * stepVerification;
+      if (num === compositeNum) {
         return false;
       }
-      arr.push(x);
+      if (!arr.includes(compositeNum)) {
+        arr.push(compositeNum);
+      }
       stepVerification += 1;
     }
     baseVerification += 1;
