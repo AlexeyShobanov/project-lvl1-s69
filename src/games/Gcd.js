@@ -12,8 +12,9 @@ const findNod = (pair) => {
   return iter(pair, 1);
 };
 
+const task = 'Find the greatest common divisor of given numbers.';
+
 const runBrainGcd = () => {
-  const task = 'Find the greatest common divisor of given numbers.';
   const question = randomData => `${car(randomData)} ${cdr(randomData)}`;
   const getResult = randomData => findNod(randomData);
   const randomData = () => createRandomPair(1, 100);

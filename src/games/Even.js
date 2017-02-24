@@ -1,7 +1,8 @@
 import { computeRandomInteger, runSelectedGame } from '../commonFunction';
 
+const task = 'Answer "yes" if number odd otherwise answer "no".';
+
 const runBrainEven = () => {
-  const task = 'Answer "yes" if number odd otherwise answer "no".';
   const question = randomData => `${randomData}`;
   const getResult = (randomData) => {
     const result = randomData % 2 === 0 ? 'yes' : 'no';

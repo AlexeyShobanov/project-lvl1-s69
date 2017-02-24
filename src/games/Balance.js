@@ -37,8 +37,10 @@ const findBalanceNum = (num) => {
   return balanceNumNormalized;
 };
 
+
+const task = 'Balance the given number.';
+
 const runBrainBalance = () => {
-  const task = 'Balance the given number.';
   const question = randomData => `${randomData}`;
   const getResult = randomData => findBalanceNum(randomData);
   const randomData = () => computeRandomInteger(100, 10000);
