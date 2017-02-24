@@ -2,5 +2,6 @@ import runBrainEven from './games/brainEven';
 import runBrainCalc from './games/brainCalc';
 import runBrainGcd from './games/brainGcd';
 import runBrainBalance from './games/brainBalance';
+import runBrainProgression from './games/brainProgression';
 
-export { runBrainEven, runBrainCalc, runBrainGcd, runBrainBalance };
+export { runBrainEven, runBrainCalc, runBrainGcd, runBrainBalance, runBrainProgression };
