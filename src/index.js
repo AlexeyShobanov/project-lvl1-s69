@@ -1,9 +1,9 @@
-import runBrainEven from './games/Even';
-import runBrainCalc from './games/Calc';
-import runBrainGcd from './games/Gcd';
-import runBrainBalance from './games/Balance';
-import runBrainProgression from './games/Progression';
-import runBrainPrime from './games/Prime';
+import runBrainEven from './games/even';
+import runBrainCalc from './games/calc';
+import runBrainGcd from './games/gcd';
+import runBrainBalance from './games/balance';
+import runBrainProgression from './games/progression';
+import runBrainPrime from './games/prime';
 
 export {
   runBrainEven,
