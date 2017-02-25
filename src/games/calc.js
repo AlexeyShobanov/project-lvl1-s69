@@ -24,11 +24,13 @@ const nextOperator = (iter) => {
 };
 
 const task = 'What is the result of the expression?';
+const maxNum = 100; // The maximum number
+const minNum = 1; // The minimum number
 
 const runBrainCalc = () => {
   const question = randomData => `${car(car(randomData))} ${cdr(randomData)} ${cdr(car(randomData))}`;
   const getResult = randomData => calcExpression(cdr(randomData), car(randomData));
-  const randomData = iter => cons(createRandomPair(1, 100), nextOperator(iter));
+  const randomData = iter => cons(createRandomPair(minNum, maxNum), nextOperator(iter));
   runSelectedGame(task, randomData, question, getResult);
 };
 

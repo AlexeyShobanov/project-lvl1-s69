@@ -1,6 +1,8 @@
 import { computeRandomInteger, runSelectedGame } from '../commonFunction';
 
 const task = 'Answer "yes" if number odd otherwise answer "no".';
+const maxNum = 100; // The maximum number
+const minNum = 1; // The minimum number
 
 const runBrainEven = () => {
   const question = randomData => `${randomData}`;
@@ -8,7 +10,7 @@ const runBrainEven = () => {
     const result = randomData % 2 === 0 ? 'yes' : 'no';
     return result;
   };
-  const randomData = () => computeRandomInteger(1, 100);
+  const randomData = () => computeRandomInteger(minNum, maxNum);
   runSelectedGame(task, randomData, question, getResult);
 };
 

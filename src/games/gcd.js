@@ -13,11 +13,13 @@ const findNod = (pair) => {
 };
 
 const task = 'Find the greatest common divisor of given numbers.';
+const maxNum = 100; // The maximum number
+const minNum = 1; // The minimum number
 
 const runBrainGcd = () => {
   const question = randomData => `${car(randomData)} ${cdr(randomData)}`;
   const getResult = randomData => findNod(randomData);
-  const randomData = () => createRandomPair(1, 100);
+  const randomData = () => createRandomPair(minNum, maxNum);
   runSelectedGame(task, randomData, question, getResult);
 };
 

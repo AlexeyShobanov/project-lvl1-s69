@@ -59,5 +59,5 @@ export const runSelectedGame = (task, getData, question, getResult) => {
     console.log('Correct!');
     iter += 1;
   }
-  return console.log(`Correct!\nCongratulations, ${name}!`);
+  return console.log(`Congratulations, ${name}!`);
 };

@@ -39,11 +39,13 @@ const findBalanceNum = (num) => {
 
 
 const task = 'Balance the given number.';
+const maxNum = 1000; // The maximum number
+const minNum = 100; // The minimum number
 
 const runBrainBalance = () => {
   const question = randomData => `${randomData}`;
   const getResult = randomData => findBalanceNum(randomData);
-  const randomData = () => computeRandomInteger(100, 10000);
+  const randomData = () => computeRandomInteger(minNum, maxNum);
   runSelectedGame(task, randomData, question, getResult);
 };
 

@@ -1,37 +1,44 @@
 import { computeRandomInteger, runSelectedGame } from '../commonFunction';
 
-const checkPrime = (num) => {
-  let baseVerification = 2;
-  const arr = [];
-  while (baseVerification * 2 < num) {
-    let stepVerification = 2;
-    while (stepVerification * baseVerification <= num) {
-      const compositeNum = baseVerification * stepVerification;
-      if (num === compositeNum) {
-        return false;
-      }
-      if (!arr.includes(compositeNum)) {
-        arr.push(compositeNum);
-      }
-      stepVerification += 1;
+const makeSieveOfEratosthenes = (dimension) => {
+  const findUniqBase = arr => (num) => {
+    if (!arr.includes(num)) {
+      return num;
     }
-    baseVerification += 1;
-    while (arr.includes(baseVerification)) {
-      baseVerification += 1;
+    return findUniqBase(arr)(num + 1);
+  };
+  const makeSieveForStep = baseVerification => (stepVerification, acc2) => {
+    if (stepVerification * baseVerification > dimension) {
+      return acc2;
     }
-  }
-  return true;
+    const [...newAcc2] = acc2.includes(stepVerification * baseVerification) ? [...acc2] : [...acc2, stepVerification * baseVerification];
+    return makeSieveForStep(baseVerification)(stepVerification + 1, newAcc2);
+  };
+  const makeSieveForBase = (baseVerification, acc) => {
+    if (baseVerification * 2 >= dimension) {
+      return acc;
+    }
+    const newAcc = makeSieveForStep(baseVerification)(2, acc);
+    const NewBaseVerification = findUniqBase(acc)(baseVerification + 1);
+    return makeSieveForBase(NewBaseVerification, newAcc);
+  };
+  return makeSieveForBase(2, []);
 };
+
+const isPrime = (num, sieveOfEratosthenes) => {
+  const answer = sieveOfEratosthenes.includes(num) ? 'no' : 'yes';
+  return answer;
+};
+
+const dimension = 1000; // The maximum number
+const sieveOfEratosthenes = makeSieveOfEratosthenes(dimension);
 
 const task = 'Answer "yes" if number prime otherwise answer "no".';
 
 const runBrainPrime = () => {
   const question = randomData => `${randomData}`;
-  const getResult = (randomData) => {
-    const result = checkPrime(randomData) ? 'yes' : 'no';
-    return result;
-  };
-  const randomData = () => computeRandomInteger(2, 1000);
+  const getResult = randomData => isPrime(randomData, sieveOfEratosthenes);
+  const randomData = () => computeRandomInteger(2, dimension);
   runSelectedGame(task, randomData, question, getResult);
 };
 

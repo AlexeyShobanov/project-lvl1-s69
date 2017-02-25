@@ -21,9 +21,9 @@ const makeMissInArithmeticalProgression = (dimension) => {
 };
 
 const task = 'What number is missing in this progression?';
+const dimension = 10; // The number of terms of an arithmetic progression
 
 const runBrainProgression = () => {
-  const dimension = 10;
   const question = (randomData) => {
     const [passPosission, ...arithmeticalProgression] = [...randomData];
     const passNum = arithmeticalProgression[passPosission];
