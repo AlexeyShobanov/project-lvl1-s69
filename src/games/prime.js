@@ -25,11 +25,6 @@ const makeSieveOfEratosthenes = (dimension) => {
   return makeSieveForBase(2, []);
 };
 
-const isPrime = (num, sieveOfEratosthenes) => {
-  const answer = sieveOfEratosthenes.includes(num) ? 'no' : 'yes';
-  return answer;
-};
-
 const dimension = 1000; // The maximum number
 const sieveOfEratosthenes = makeSieveOfEratosthenes(dimension);
 
@@ -37,7 +32,10 @@ const task = 'Answer "yes" if number prime otherwise answer "no".';
 
 const runBrainPrime = () => {
   const question = randomData => `${randomData}`;
-  const getResult = randomData => isPrime(randomData, sieveOfEratosthenes);
+  const getResult = (randomData) => {
+    const result = sieveOfEratosthenes.includes(randomData) ? 'no' : 'yes';
+    return result;
+  };
   const randomData = () => computeRandomInteger(2, dimension);
   runSelectedGame(task, randomData, question, getResult);
 };
