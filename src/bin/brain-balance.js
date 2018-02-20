@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { runBrainBalance } from '..';
+import { runBalanceGame } from '..';
 
-runBrainBalance();
+runBalanceGame();

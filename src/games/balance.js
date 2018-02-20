@@ -1,52 +1,36 @@
 import { computeRandomInteger, runSelectedGame } from '../commonFunction';
 
-const iterBalance = (arr) => {
-  if (arr.length < 2) {
-    return arr;
-  }
-  const [a, b, ...rest] = arr;
-  const diffAbs = Math.abs(a - b);
-  const [first, second] = diffAbs < 2 ? [a, b] : [Math.floor((a + b) / 2), Math.ceil((a + b) / 2)];
-  return [first, ...iterBalance([second, ...rest])];
-};
+const maxNum = 1000; // The maximum number
+const minNum = 100; // The minimum number
 
-const checkBalance = (arr) => {
-  if (arr.length < 2) {
-    return true;
+const calcBalanceNum = (num) => {
+  if (num < 10) {
+    return num;
   }
-  const [a, b, ...rest] = arr;
-  if (Math.abs(a - b) > 1) {
-    return false;
-  }
-  return checkBalance([b, ...rest]);
-};
-
-const calcBalanceArr = (arr) => {
-  if (checkBalance(arr)) {
-    return arr;
-  }
-  const newArr = iterBalance(arr);
-  return calcBalanceArr(newArr);
-};
-
-const findBalanceNum = (num) => {
   const strFromNum = String(num);
   const arrFromNum = strFromNum.split('').map(element => Number(element));
-  const balanceArr = calcBalanceArr(arrFromNum);
+  const sumNumOfArr = arrFromNum.reduce((result, item) => result + item, 0);
+  const iter = (remainderSum, remainderLength, acc) => {
+    if (remainderLength === 2) {
+      return [...acc, Math.floor(remainderSum / 2), Math.ceil(remainderSum / 2)];
+    }
+    const currentDigit = Math.floor(remainderSum / remainderLength);
+    return iter(remainderSum - currentDigit, remainderLength - 1, [...acc, currentDigit]);
+  };
+  const balanceArr = iter(sumNumOfArr, arrFromNum.length, []);
   const balanceNumNormalized = balanceArr.sort().join('');
   return balanceNumNormalized;
 };
 
-
-const task = 'Balance the given number.';
-const maxNum = 1000; // The maximum number
-const minNum = 100; // The minimum number
-
-const runBrainBalance = () => {
-  const question = randomData => `${randomData}`;
-  const getResult = randomData => findBalanceNum(randomData);
-  const randomData = () => computeRandomInteger(minNum, maxNum);
-  runSelectedGame(task, randomData, question, getResult);
+const balance = (name) => {
+  const gameData = {
+    userName: name,
+    task: 'Balance the given number.',
+    data: () => computeRandomInteger(minNum, maxNum),
+    question: randomData => `${randomData}`,
+    result: randomData => calcBalanceNum(randomData),
+  };
+  runSelectedGame(gameData);
 };
 
-export default runBrainBalance;
+export default balance;

@@ -1,26 +1,28 @@
-import { cons, car, cdr } from 'hexlet-pairs';
-import { createRandomPair, runSelectedGame, divRemPair } from '../commonFunction';
+import { runSelectedGame, makeRandomPairNums } from '../commonFunction';
 
-const findNod = (pair) => {
-  const iter = (numbs, acc) => {
-    if (acc === 0) {
-      return car(numbs);
-    }
-    const remainderDiv = divRemPair(numbs);
-    return iter(cons(cdr(numbs), remainderDiv), remainderDiv);
-  };
-  return iter(pair, 1);
-};
-
-const task = 'Find the greatest common divisor of given numbers.';
 const maxNum = 100; // The maximum number
 const minNum = 1; // The minimum number
 
-const runBrainGcd = () => {
-  const question = randomData => `${car(randomData)} ${cdr(randomData)}`;
-  const getResult = randomData => findNod(randomData);
-  const randomData = () => createRandomPair(minNum, maxNum);
-  runSelectedGame(task, randomData, question, getResult);
+const findGcd = (data) => {
+  const iter = (firstNum, secondNum) => {
+    const remainder = firstNum % secondNum;
+    if (remainder === 0) {
+      return secondNum;
+    }
+    return iter(secondNum, remainder);
+  };
+  return iter(data.fistOperand, data.secondOperand);
 };
 
-export default runBrainGcd;
+const gcd = (name) => {
+  const gameData = {
+    userName: name,
+    task: 'Find the greatest common divisor of given numbers.',
+    data: () => makeRandomPairNums(minNum, maxNum),
+    question: randomData => `${randomData.fistOperand} and ${randomData.secondOperand}`,
+    result: randomData => findGcd(randomData),
+  };
+  runSelectedGame(gameData);
+};
+
+export default gcd;

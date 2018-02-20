@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import printGreeting from '..';
+import { choiceGame, welcome } from '..';
 
-printGreeting();
+choiceGame(welcome());

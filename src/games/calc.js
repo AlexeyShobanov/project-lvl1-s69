@@ -1,18 +1,9 @@
-import { car, cdr, cons } from 'hexlet-pairs';
-import { runSelectedGame, createRandomPair, subPair, mulPair, sumPair } from '../commonFunction';
+import { computeRandomInteger, runSelectedGame } from '../commonFunction';
 
-const calcExpression = (operator, pair) => {
-  switch (operator) {
-    case '-':
-      return subPair(pair);
-    case '*':
-      return mulPair(pair);
-    default:
-      return sumPair(pair);
-  }
-};
+const maxNum = 100; // The maximum number
+const minNum = 1; // The minimum number
 
-const nextOperator = (iter) => {
+const choiceOperator = (iter) => {
   switch (String(iter)) {
     case '0':
       return '+';
@@ -23,15 +14,35 @@ const nextOperator = (iter) => {
   }
 };
 
-const task = 'What is the result of the expression?';
-const maxNum = 100; // The maximum number
-const minNum = 1; // The minimum number
-
-const runBrainCalc = () => {
-  const question = randomData => `${car(car(randomData))} ${cdr(randomData)} ${cdr(car(randomData))}`;
-  const getResult = randomData => calcExpression(cdr(randomData), car(randomData));
-  const randomData = iter => cons(createRandomPair(minNum, maxNum), nextOperator(iter));
-  runSelectedGame(task, randomData, question, getResult);
+const makeRandomExpression = (iter) => {
+  const randomExpression = {
+    fistOperand: computeRandomInteger(minNum, maxNum),
+    secondOperand: computeRandomInteger(minNum, maxNum),
+    operator: choiceOperator(iter),
+  };
+  return randomExpression;
 };
 
-export default runBrainCalc;
+const calcExpression = (data) => {
+  switch (data.operator) {
+    case '-':
+      return data.fistOperand - data.secondOperand;
+    case '*':
+      return data.fistOperand * data.secondOperand;
+    default:
+      return data.fistOperand + data.secondOperand;
+  }
+};
+
+const calc = (name) => {
+  const gameData = {
+    userName: name,
+    task: 'What is the result of the expression?',
+    data: iter => makeRandomExpression(iter),
+    question: randomData => `${randomData.fistOperand} ${randomData.operator} ${randomData.secondOperand}`,
+    result: randomData => calcExpression(randomData),
+  };
+  runSelectedGame(gameData);
+};
+
+export default calc;

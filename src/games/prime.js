@@ -1,43 +1,30 @@
 import { computeRandomInteger, runSelectedGame } from '../commonFunction';
 
-const makeSieveOfEratosthenes = (dimension) => {
-  const findUniqBase = arr => (num) => {
-    if (!arr.includes(num)) {
-      return num;
+const maxNum = 1000; // The maximum number
+const minNum = 100; // The minimum number
+
+const isPrime = (num) => {
+  if (num < 2) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(num); i += 1) {
+    if (num % i === 0) {
+      return false;
     }
-    return findUniqBase(arr)(num + 1);
-  };
-  const makeSieveForStep = baseVerification => (stepVerification, acc2) => {
-    if (stepVerification * baseVerification > dimension) {
-      return acc2;
-    }
-    const [...newAcc2] = acc2.includes(stepVerification * baseVerification) ? [...acc2] : [...acc2, stepVerification * baseVerification];
-    return makeSieveForStep(baseVerification)(stepVerification + 1, newAcc2);
-  };
-  const makeSieveForBase = (baseVerification, acc) => {
-    if (baseVerification * 2 >= dimension) {
-      return acc;
-    }
-    const newAcc = makeSieveForStep(baseVerification)(2, acc);
-    const NewBaseVerification = findUniqBase(acc)(baseVerification + 1);
-    return makeSieveForBase(NewBaseVerification, newAcc);
-  };
-  return makeSieveForBase(2, []);
+  }
+  return true;
 };
 
-const dimension = 1000; // The maximum number
-const sieveOfEratosthenes = makeSieveOfEratosthenes(dimension);
 
-const task = 'Answer "yes" if number prime otherwise answer "no".';
-
-const runBrainPrime = () => {
-  const question = randomData => `${randomData}`;
-  const getResult = (randomData) => {
-    const result = sieveOfEratosthenes.includes(randomData) ? 'no' : 'yes';
-    return result;
+const prime = (name) => {
+  const gameData = {
+    userName: name,
+    task: 'Answer "yes" if number prime otherwise answer "no".',
+    data: () => computeRandomInteger(minNum, maxNum),
+    question: randomData => `${randomData}`,
+    result: randomData => (isPrime(randomData) ? 'yes' : 'no'),
   };
-  const randomData = () => computeRandomInteger(2, dimension);
-  runSelectedGame(task, randomData, question, getResult);
+  runSelectedGame(gameData);
 };
 
-export default runBrainPrime;
+export default prime;
