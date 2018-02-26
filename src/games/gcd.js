@@ -2,6 +2,7 @@ import { runSelectedGame, makeRandomPairNums } from '../commonFunction';
 
 const maxNum = 100; // The maximum number
 const minNum = 1; // The minimum number
+const currentTask = 'Find the greatest common divisor of given numbers.';
 
 const findGcd = (data) => {
   const iter = (firstNum, secondNum) => {
@@ -14,15 +15,14 @@ const findGcd = (data) => {
   return iter(data.fistOperand, data.secondOperand);
 };
 
-const gcd = (name) => {
+const gcd = () => {
   const gameData = {
-    userName: name,
-    task: 'Find the greatest common divisor of given numbers.',
+    task: currentTask,
     data: () => makeRandomPairNums(minNum, maxNum),
     question: randomData => `${randomData.fistOperand} and ${randomData.secondOperand}`,
     result: randomData => findGcd(randomData),
   };
-  runSelectedGame(gameData);
+  return runSelectedGame(gameData);
 };
 
 export default gcd;

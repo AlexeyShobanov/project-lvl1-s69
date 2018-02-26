@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import chalk from 'chalk';
 
 export const computeRandomInteger = (min, max) => {
   const number = Math.floor(Math.random() * (max - min)) + min;
@@ -13,23 +14,19 @@ export const makeRandomPairNums = (minNum, maxNum) => {
   return randomPair;
 };
 
-export const getAnswer = (question) => {
-  const gamerAnswer = readlineSync.question(question);
-  return gamerAnswer;
-};
-
 export const runSelectedGame = (gameData) => {
   console.log(gameData.task);
   for (let i = 0; i < 3; i += 1) {
     const randomData = gameData.data(i);
-    console.log(`Question: ${gameData.question(randomData)}`);
+    console.log(chalk`{yellow ${'Question: '}}{green ${gameData.question(randomData)}}`);
     const result = gameData.result(randomData);
-    const yourAnswer = getAnswer('Your answer: ');
+    const yourAnswer = readlineSync.question(chalk.yellow('Your answer: '));
     if (yourAnswer !== String(result)) {
-      const incorrectAnswer = `'${yourAnswer}' is wrong answer ;(. Correct answer was '${result}'.\nLet's try again, ${gameData.userName}!`;
-      return console.log(incorrectAnswer);
+      console.log(chalk`{red ${`"${yourAnswer}"`}}{yellow ${' is wrong answer ;(.'}}`);
+      console.log(chalk`{yellow ${'Correct answer was '}}{green ${`"${result}"`}}{yellow ${'.'}}\n`);
+      return 0;
     }
-    console.log('Correct!');
+    console.log(chalk.green('Correct!'));
   }
-  return console.log(`Congratulations, ${gameData.userName}!`);
+  return 1;
 };

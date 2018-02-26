@@ -2,6 +2,7 @@ import { computeRandomInteger, runSelectedGame } from '../commonFunction';
 
 const maxNum = 1000; // The maximum number
 const minNum = 100; // The minimum number
+const currentTask = 'Balance the given number.';
 
 const calcBalanceNum = (num) => {
   if (num < 10) {
@@ -22,15 +23,14 @@ const calcBalanceNum = (num) => {
   return balanceNumNormalized;
 };
 
-const balance = (name) => {
+const balance = () => {
   const gameData = {
-    userName: name,
-    task: 'Balance the given number.',
+    task: currentTask,
     data: () => computeRandomInteger(minNum, maxNum),
     question: randomData => `${randomData}`,
     result: randomData => calcBalanceNum(randomData),
   };
-  runSelectedGame(gameData);
+  return runSelectedGame(gameData);
 };
 
 export default balance;
