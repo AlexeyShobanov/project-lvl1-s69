@@ -2,7 +2,6 @@ import { computeRandomInteger, runSelectedGame } from '../commonFunction';
 
 const maxNum = 1000; // The maximum number
 const minNum = 100; // The minimum number
-const currentTask = 'Answer "yes" if number prime otherwise answer "no".';
 
 const isPrime = (num) => {
   if (num < 2) {
@@ -16,15 +15,14 @@ const isPrime = (num) => {
   return true;
 };
 
-
-const prime = () => {
-  const gameData = {
-    task: currentTask,
-    data: () => computeRandomInteger(minNum, maxNum),
-    question: randomData => `${randomData}`,
-    result: randomData => (isPrime(randomData) ? 'yes' : 'no'),
-  };
-  return runSelectedGame(gameData);
+const gameData = {
+  task: 'Answer "yes" if number prime otherwise answer "no".',
+  getData: () => computeRandomInteger(minNum, maxNum),
+  getQuestion: randomData => `${randomData}`,
+  getResult: randomData => (isPrime(randomData) ? 'yes' : 'no'),
 };
+
+
+const prime = () => runSelectedGame(gameData);
 
 export default prime;

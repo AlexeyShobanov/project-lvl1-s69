@@ -14,12 +14,12 @@ export const makeRandomPairNums = (minNum, maxNum) => {
   return randomPair;
 };
 
-export const runSelectedGame = (gameData) => {
-  console.log(gameData.task);
+export const runSelectedGame = (termsOfGame) => {
+  console.log(termsOfGame.task);
   for (let i = 0; i < 3; i += 1) {
-    const randomData = gameData.data(i);
-    console.log(chalk`{yellow ${'Question: '}}{green ${gameData.question(randomData)}}`);
-    const result = gameData.result(randomData);
+    const randomData = termsOfGame.getData(i);
+    console.log(chalk`{yellow ${'Question: '}}{green ${termsOfGame.getQuestion(randomData)}}`);
+    const result = termsOfGame.getResult(randomData);
     const yourAnswer = readlineSync.question(chalk.yellow('Your answer: '));
     if (yourAnswer !== String(result)) {
       console.log(chalk`{red ${`"${yourAnswer}"`}}{yellow ${' is wrong answer ;(.'}}`);

@@ -2,7 +2,6 @@ import { computeRandomInteger, runSelectedGame } from '../commonFunction';
 
 const maxNum = 100; // The maximum number
 const minNum = 1; // The minimum number
-const currentTask = 'What is the result of the expression?';
 
 const choiceOperator = (iter) => {
   switch (String(iter)) {
@@ -35,14 +34,13 @@ const calcExpression = (data) => {
   }
 };
 
-const calc = () => {
-  const gameData = {
-    task: currentTask,
-    data: iter => makeRandomExpression(iter),
-    question: randomData => `${randomData.fistOperand} ${randomData.operator} ${randomData.secondOperand}`,
-    result: randomData => calcExpression(randomData),
-  };
-  return runSelectedGame(gameData);
+const gameData = {
+  task: 'What is the result of the expression?',
+  getData: iter => makeRandomExpression(iter),
+  getQuestion: randomData => `${randomData.fistOperand} ${randomData.operator} ${randomData.secondOperand}`,
+  getResult: randomData => calcExpression(randomData),
 };
+
+const calc = () => runSelectedGame(gameData);
 
 export default calc;
