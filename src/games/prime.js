@@ -15,14 +15,12 @@ const isPrime = (num) => {
   return true;
 };
 
-const gameData = {
-  task: 'Answer "yes" if number prime otherwise answer "no".',
-  getData: () => computeRandomInteger(minNum, maxNum),
-  getQuestion: randomData => `${randomData}`,
-  getResult: randomData => (isPrime(randomData) ? 'yes' : 'no'),
-};
+const task = 'Answer "yes" if number prime otherwise answer "no".';
+const getData = () => computeRandomInteger(minNum, maxNum);
+const getQuestion = randomData => `${randomData}`;
+const getResult = randomData => (isPrime(randomData) ? 'yes' : 'no');
 
 
-const prime = () => runSelectedGame(gameData);
+const prime = () => runSelectedGame(task, getData, getQuestion, getResult);
 
 export default prime;

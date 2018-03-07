@@ -26,13 +26,11 @@ const makeMissInArithmeticalProgression = () => {
   };
 };
 
-const gameData = {
-  task: 'What number is missing in this progression?',
-  getData: () => makeMissInArithmeticalProgression(),
-  getQuestion: randomData => randomData.progression.join(' ').replace(String(randomData.progression[randomData.pass]), '..'),
-  getResult: randomData => randomData.progression[randomData.pass],
-};
+const task = 'What number is missing in this progression?';
+const getData = () => makeMissInArithmeticalProgression();
+const getQuestion = randomData => randomData.progression.join(' ').replace(String(randomData.progression[randomData.pass]), '..');
+const getResult = randomData => randomData.progression[randomData.pass];
 
-const progression = () => runSelectedGame(gameData);
+const progression = () => runSelectedGame(task, getData, getQuestion, getResult);
 
 export default progression;

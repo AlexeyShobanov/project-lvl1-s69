@@ -8,13 +8,11 @@ const checkEvenNum = (num) => {
   return result;
 };
 
-const gameData = {
-  task: 'Answer "yes" if number even otherwise answer "no".',
-  getData: () => computeRandomInteger(minNum, maxNum),
-  getQuestion: randomData => `${randomData}`,
-  getResult: randomData => checkEvenNum(randomData),
-};
+const task = 'Answer "yes" if number even otherwise answer "no".';
+const getData = () => computeRandomInteger(minNum, maxNum);
+const getQuestion = randomData => `${randomData}`;
+const getResult = randomData => checkEvenNum(randomData);
 
-const even = () => runSelectedGame(gameData);
+const even = () => runSelectedGame(task, getData, getQuestion, getResult);
 
 export default even;

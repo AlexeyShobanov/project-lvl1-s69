@@ -14,13 +14,11 @@ const findGcd = (data) => {
   return iter(data.fistOperand, data.secondOperand);
 };
 
-const gameData = {
-  task: 'Find the greatest common divisor of given numbers.',
-  getData: () => makeRandomPairNums(minNum, maxNum),
-  getQuestion: randomData => `${randomData.fistOperand} and ${randomData.secondOperand}`,
-  getResult: randomData => findGcd(randomData),
-};
+const task = 'Find the greatest common divisor of given numbers.';
+const getData = () => makeRandomPairNums(minNum, maxNum);
+const getQuestion = randomData => `${randomData.fistOperand} and ${randomData.secondOperand}`;
+const getResult = randomData => findGcd(randomData);
 
-const gcd = () => runSelectedGame(gameData);
+const gcd = () => runSelectedGame(task, getData, getQuestion, getResult);
 
 export default gcd;

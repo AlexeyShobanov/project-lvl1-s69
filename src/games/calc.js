@@ -34,13 +34,11 @@ const calcExpression = (data) => {
   }
 };
 
-const gameData = {
-  task: 'What is the result of the expression?',
-  getData: iter => makeRandomExpression(iter),
-  getQuestion: randomData => `${randomData.fistOperand} ${randomData.operator} ${randomData.secondOperand}`,
-  getResult: randomData => calcExpression(randomData),
-};
+const task = 'What is the result of the expression?';
+const getData = iter => makeRandomExpression(iter);
+const getQuestion = randomData => `${randomData.fistOperand} ${randomData.operator} ${randomData.secondOperand}`;
+const getResult = randomData => calcExpression(randomData);
 
-const calc = () => runSelectedGame(gameData);
+const calc = () => runSelectedGame(task, getData, getQuestion, getResult);
 
 export default calc;

@@ -22,13 +22,11 @@ const calcBalanceNum = (num) => {
   return balanceNumNormalized;
 };
 
-const gameData = {
-  task: 'Balance the given number.',
-  getData: () => computeRandomInteger(minNum, maxNum),
-  getQuestion: randomData => `${randomData}`,
-  getResult: randomData => calcBalanceNum(randomData),
-};
+const task = 'Balance the given number.';
+const getData = () => computeRandomInteger(minNum, maxNum);
+const getQuestion = randomData => `${randomData}`;
+const getResult = randomData => calcBalanceNum(randomData);
 
-const balance = () => runSelectedGame(gameData);
+const balance = () => runSelectedGame(task, getData, getQuestion, getResult);
 
 export default balance;
